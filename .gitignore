@@ -1,5 +1,5 @@
 bin
 obj
-/.idea
-/.vs
-/.vscode
+.idea/
+.vs/
+.vscode/
