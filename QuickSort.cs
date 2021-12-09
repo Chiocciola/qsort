@@ -21,8 +21,8 @@ namespace SortingAlgorithms
             //var scheduler = new ThreadScheduler<Interval>(Sort);
             var scheduler = new TaskBasedScheduler<Interval>(Sort);
 
-            //scheduler.Enque(new Interval(0, a.Length - 1));
-            Sort(new Interval(0, a.Length - 1), scheduler);
+            scheduler.Enque(new Interval(0, a.Length - 1));
+            //Sort(new Interval(0, a.Length - 1), scheduler);
             
             scheduler.Wait();
 
