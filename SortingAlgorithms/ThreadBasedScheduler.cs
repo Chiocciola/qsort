@@ -1,3 +1,7 @@
+using System;
+using System.Collections.Generic;
+using System.Threading;
+
 namespace SortingAlgorithms
 {
     public class ThreadScheduler<T>: IScheduler<T>
