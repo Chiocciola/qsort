@@ -2,5 +2,4 @@ bin
 obj
 .idea/
 .vs/
-.vscode/
 BenchmarkDotNet.Artifacts/
