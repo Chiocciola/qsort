@@ -4,7 +4,7 @@ using System.Threading;
 
 namespace SortingAlgorithms
 {
-    public class ThreadScheduler<T>: IScheduler<T>
+    public class ThreadBasedScheduler<T>: IScheduler<T>
     {
         private int ActiveThreadCount = 0;
 
@@ -12,9 +12,9 @@ namespace SortingAlgorithms
 
         private readonly Queue<T> m_queue = new Queue<T>();
 
-        private readonly Action<T, IScheduler<T>> m_action;
+        private Action<T> m_action;
 
-        public ThreadScheduler(Action<T, IScheduler<T>> action)
+        public void SetHandler(Action<T> action)
         {
             m_action = action;
         }
@@ -91,7 +91,7 @@ namespace SortingAlgorithms
                     t = m_queue.Dequeue();
                 }
 
-                m_action(t, this);
+                m_action(t);
             }
 
             m_noMoreThreadsEvent.Signal();

@@ -8,12 +8,13 @@ namespace SortingAlgorithms
     public class TaskBasedScheduler<T>: IScheduler<T>
     {
         private readonly ConcurrentQueue<T> m_queue = new ConcurrentQueue<T>();
-        private readonly Action<T, IScheduler<T>> m_action;
         private readonly CountdownEvent m_doneEvent = new CountdownEvent(1);
 
-        public TaskBasedScheduler(Action<T, IScheduler<T>> action)
+        private Action<T> m_action;
+
+        public void SetHandler(Action<T> handler)
         {
-            m_action = action;
+            m_action = handler;
         }
 
         public void Enque(T param)
@@ -46,7 +47,7 @@ namespace SortingAlgorithms
         {
             while (m_queue.TryDequeue(out var t))
             {
-                m_action(t, this);
+                m_action(t);
             }
 
             m_doneEvent.Signal();

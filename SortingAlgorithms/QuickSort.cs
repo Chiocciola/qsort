@@ -5,7 +5,7 @@ namespace SortingAlgorithms
 {
     public static class QSort
     {
-        private struct Interval
+        public struct Interval
         {
             public int Lo;
             public int Hi;
@@ -17,21 +17,21 @@ namespace SortingAlgorithms
             }
         }
 
-        public static void Sort(int[] a)
+        public static void Sort(int[] a, IScheduler<Interval> scheduler)
         {
             //var scheduler = new ThreadScheduler<Interval>(Sort);
-            var scheduler = new TaskBasedScheduler<Interval>(Sort);
 
+            scheduler.SetHandler(Sort);
             scheduler.Enque(new Interval(0, a.Length - 1));
             //Sort(new Interval(0, a.Length - 1), scheduler);
             
             scheduler.Wait();
 
-            void Sort(Interval interval, IScheduler<Interval> scheduler)
+            void Sort(Interval interval)
             {
                 while (interval.Lo < interval.Hi)
                 {
-                    if (interval.Hi - interval.Lo < 1024)
+                    if (interval.Hi - interval.Lo < 16)
                     {
                         Array.Sort(a, interval.Lo, interval.Hi - interval.Lo + 1);
                         return;

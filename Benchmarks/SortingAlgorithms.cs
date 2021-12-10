@@ -7,7 +7,7 @@ namespace Benchmarks
 {
     public class SortingAlgorithms
     {
-        [Params(1000, 10_000, 100_000, 1_000_000)]
+        [Params(10_000_000)]
         public int N;
         
         private int[] unsorted;
@@ -40,29 +40,41 @@ namespace Benchmarks
             Array.Sort(data);
         }
         
+        // [Benchmark]
+        // public void PLinq_OrderBy()
+        // {
+        //     data = data.AsParallel().OrderBy(x => x).ToArray();
+        // }
+        
+        // [Benchmark]
+        // public void __2()
+        // {
+        //     Array.Sort(data);
+        // }
+
         [Benchmark]
-        public void PLinq_OrderBy()
+        public void Bondar_QSort_Sync()
         {
-            data = data.AsParallel().OrderBy(x => x).ToArray();
+            QSort.Sort(data, new SyncScheduler<QSort.Interval>());
+        }
+
+        [Benchmark]
+        public void Bondar_QSort_Thread()
+        {
+            QSort.Sort(data, new ThreadBasedScheduler<QSort.Interval>());
+        }
+
+        [Benchmark]
+        public void Bondar_QSort_Task()
+        {
+            QSort.Sort(data, new TaskBasedScheduler<QSort.Interval>());
         }
         
-        [Benchmark]
-        public void __2()
-        {
-            Array.Sort(data);
-        }
-        
-        [Benchmark]
-        public void Bondar_QSort()
-        {
-            QSort.Sort(data);
-        }
-        
-        [Benchmark]
-        public void __3()
-        {
-            Array.Sort(data);
-        }
+        // [Benchmark]
+        // public void __3()
+        // {
+        //     Array.Sort(data);
+        // }
 
         [Benchmark]
         public void Kucherenko_NaiveQSort()
@@ -70,10 +82,10 @@ namespace Benchmarks
             KuSort.NaiveSort(data);
         }
 
-        [Benchmark]
-        public void __4()
-        {
-            Array.Sort(data);
-        }
+        // [Benchmark]
+        // public void __4()
+        // {
+        //     Array.Sort(data);
+        // }
     }
 }
