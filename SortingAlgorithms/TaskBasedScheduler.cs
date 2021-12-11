@@ -21,7 +21,7 @@ namespace SortingAlgorithms
         {
             m_queue.Enqueue(param);
 
-            if (m_doneEvent.CurrentCount <= 4)
+            if (m_doneEvent.CurrentCount <= 8)
             {
                 m_doneEvent.AddCount();
 

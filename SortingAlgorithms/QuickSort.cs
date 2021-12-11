@@ -33,7 +33,8 @@ namespace SortingAlgorithms
                 {
                     if (interval.Hi - interval.Lo < 16)
                     {
-                        Array.Sort(a, interval.Lo, interval.Hi - interval.Lo + 1);
+                        //Array.Sort(a, interval.Lo, interval.Hi - interval.Lo + 1);
+                        InsertionSort(a, interval);
                         return;
                     }
 
@@ -42,6 +43,24 @@ namespace SortingAlgorithms
                     scheduler.Enque(new Interval(interval.Lo, p - 1));
 
                     interval.Lo = p + 1;
+                }
+            }
+        }
+
+        public static void InsertionSort(int[] a, Interval interval)
+        {
+            for (int i = interval.Lo; i <= interval.Hi; i++)
+            {
+                for ( int j = i; j > interval.Lo; j--)
+                {
+                    if (a[j] < a[j-1])
+                    {
+                        Swap(a, j - 1, j);
+                    }
+                    else
+                    {
+                        break;
+                    }
                 }
             }
         }
