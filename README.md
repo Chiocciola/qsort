@@ -1,8 +1,8 @@
-BenchmarkDotNet=v0.13.1, OS=Windows 10.0.19042.1348 (20H2/October2020Update)
-Intel Core i7-7820HQ CPU 2.90GHz (Kaby Lake), 1 CPU, 8 logical and 4 physical cores
-.NET SDK=6.0.100
-  [Host]     : .NET 5.0.12 (5.0.1221.52207), X64 RyuJIT  [AttachedDebugger]
-  Job-FKIDUN : .NET 5.0.12 (5.0.1221.52207), X64 RyuJIT
+BenchmarkDotNet=v0.13.1, OS=Windows 10.0.19042.1348 (20H2/October2020Update)  
+Intel Core i7-7820HQ CPU 2.90GHz (Kaby Lake), 1 CPU, 8 logical and 4 physical cores  
+.NET SDK=6.0.100  
+  [Host]     : .NET 5.0.12 (5.0.1221.52207), X64 RyuJIT  [AttachedDebugger]  
+  Job-FKIDUN : .NET 5.0.12 (5.0.1221.52207), X64 RyuJIT  
 
 InvocationCount=1  UnrollFactor=1  
 
