@@ -1,13 +1,18 @@
 # Multithread Quicksort challenge
 
-## The goal of this challenge is:
+## The goals
 
 1. Refresh/Learn how to work with Git/GitHub
 2. Refresh/Learn how to work with C# project/solutions in VS Code
 3. Refresh/Learn what is QuickSort
 4. Challenge yourself to implement multithreaded version of QuickSort
 
-Good start pion is Wikipedia article https://en.wikipedia.org/wiki/Quicksort
+## Where to start
+1. Good start piont is a Wikipedia article: https://en.wikipedia.org/wiki/Quicksort
+2. To start working with code fork this project
+3. Add a project named with your name/nickname
+4. Update Benchmarks project
+5. Submit pull request
 
 ## Current benchmarks
 Thanks to @olegku for introducing support of https://github.com/dotnet/BenchmarkDotNet
