@@ -6,7 +6,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SortingAlgorithms\qsort.csproj" />
+    <ProjectReference Include="..\Bondar\Bondar.csproj" />
+    <ProjectReference Include="..\Kucherenko\Kucherenko.csproj" />
   </ItemGroup>
 
   <ItemGroup>
