@@ -1,10 +1,17 @@
-BenchmarkDotNet=v0.13.1, OS=Windows 10.0.19042.1348 (20H2/October2020Update)  
-Intel Core i7-7820HQ CPU 2.90GHz (Kaby Lake), 1 CPU, 8 logical and 4 physical cores  
-.NET SDK=6.0.100  
-  [Host]     : .NET 5.0.12 (5.0.1221.52207), X64 RyuJIT  [AttachedDebugger]  
-  Job-FKIDUN : .NET 5.0.12 (5.0.1221.52207), X64 RyuJIT  
+# Multithread Quicksort challenge
 
-InvocationCount=1  UnrollFactor=1  
+## The goal of this challenge is:
+
+1. Refresh/Learn how to work with Git/GitHub
+2. Refresh/Learn how to work with C# project/solutions in VS Code
+3. Refresh/Learn what is QuickSort
+4. Challenge yourself to implement multithreaded version of QuickSort
+
+Good start pion is Wikipedia article https://en.wikipedia.org/wiki/Quicksort
+
+## Current benchmarks
+Thanks to @olegku for introducing support of https://github.com/dotnet/BenchmarkDotNet
+
 
 |                Method |        N |       Mean |    Error |   StdDev | Ratio | RatioSD |
 |---------------------- |--------- |-----------:|---------:|---------:|------:|--------:|
