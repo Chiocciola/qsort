@@ -23,8 +23,6 @@ namespace SortingAlgorithms
 
             scheduler.SetHandler(Sort);
             scheduler.Enque(new Interval(0, a.Length - 1));
-            //Sort(new Interval(0, a.Length - 1), scheduler);
-            
             scheduler.Wait();
 
             void Sort(Interval interval)
@@ -49,19 +47,17 @@ namespace SortingAlgorithms
 
         public static void InsertionSort(int[] a, Interval interval)
         {
-            for (int i = interval.Lo; i <= interval.Hi; i++)
+            for (int i = interval.Lo + 1; i <= interval.Hi; i++)
             {
-                for ( int j = i; j > interval.Lo; j--)
+                var toInsert = a[i];
+                var j = i;
+
+                while (j > interval.Lo && a[j - 1] > toInsert)
                 {
-                    if (a[j] < a[j-1])
-                    {
-                        Swap(a, j - 1, j);
-                    }
-                    else
-                    {
-                        break;
-                    }
+                    a[j] = a[--j];
                 }
+
+                a[j] = toInsert;
             }
         }
 
