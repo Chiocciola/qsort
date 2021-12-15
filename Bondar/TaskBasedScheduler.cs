@@ -3,14 +3,14 @@ using System.Collections.Concurrent;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace SortingAlgorithms
+namespace Bondar
 {
     public class TaskBasedScheduler<T>: IScheduler<T>
     {
         private readonly ConcurrentQueue<T> m_queue = new ConcurrentQueue<T>();
         private readonly CountdownEvent m_doneEvent = new CountdownEvent(1);
 
-        private Action<T> m_action;
+        private Action<T>? m_action;
 
         public void SetHandler(Action<T> handler)
         {
@@ -47,7 +47,7 @@ namespace SortingAlgorithms
         {
             while (m_queue.TryDequeue(out var t))
             {
-                m_action(t);
+                m_action?.Invoke(t);
             }
 
             m_doneEvent.Signal();

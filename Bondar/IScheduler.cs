@@ -1,6 +1,6 @@
 using System;
 
-namespace SortingAlgorithms
+namespace Bondar
 {
     public interface IScheduler<T>
     {

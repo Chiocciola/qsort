@@ -1,7 +1,6 @@
 using System;
 using System.Linq;
 using Xunit;
-using SortingAlgorithms;
 
 namespace Bondar.Test
 {
@@ -26,7 +25,7 @@ namespace Bondar.Test
             Array.Copy(unsorted,sorted, N);
             Array.Sort(sorted);
 
-            QSort.Sort(unsorted, new SyncScheduler<QSort.Interval>());
+            QuickSort.Sort(unsorted, QuickSort.SchedulerType.Sync);
 
             Assert.True(unsorted.SequenceEqual(sorted), "Sorting is not correct");
         }

@@ -1,10 +1,10 @@
 using System;
 
-namespace SortingAlgorithms
+namespace Bondar
 {
     public class SyncScheduler<T>: IScheduler<T>
     {
-        private Action<T> m_handler;
+        private Action<T>? m_handler;
 
         public void SetHandler(Action<T> handler)
         {
@@ -13,7 +13,7 @@ namespace SortingAlgorithms
 
         public void Enque(T t)
         {
-            m_handler(t);
+            m_handler?.Invoke(t);
         }
 
         public void Wait()

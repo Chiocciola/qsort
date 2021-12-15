@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using BenchmarkDotNet.Attributes;
 using SortingAlgorithms;
 
@@ -35,7 +34,7 @@ namespace Benchmarks
         }
 
         [Benchmark(Baseline = true)]
-        public void __1()
+        public void ArraySort()
         {
             Array.Sort(data);
         }
@@ -53,21 +52,21 @@ namespace Benchmarks
         // }
 
         [Benchmark]
-        public void Bondar_QSort_Sync()
+        public void Bondar_QuickSort_Sync()
         {
-            QSort.Sort(data, new SyncScheduler<QSort.Interval>());
+            Bondar.QuickSort.Sort(data, Bondar.QuickSort.SchedulerType.Sync);
         }
 
         [Benchmark]
         public void Bondar_QSort_Thread()
         {
-            QSort.Sort(data, new ThreadBasedScheduler<QSort.Interval>());
+            Bondar.QuickSort.Sort(data, Bondar.QuickSort.SchedulerType.ThreadBased);
         }
 
         [Benchmark]
         public void Bondar_QSort_Task()
         {
-            QSort.Sort(data, new TaskBasedScheduler<QSort.Interval>());
+            Bondar.QuickSort.Sort(data, Bondar.QuickSort.SchedulerType.TaskBased);
         }
         
         // [Benchmark]

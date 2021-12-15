@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 
-namespace SortingAlgorithms
+namespace Bondar
 {
     public class ThreadBasedScheduler<T>: IScheduler<T>
     {
@@ -12,7 +12,7 @@ namespace SortingAlgorithms
 
         private readonly Queue<T> m_queue = new Queue<T>();
 
-        private Action<T> m_action;
+        private Action<T>? m_action;
 
         public void SetHandler(Action<T> action)
         {
@@ -91,7 +91,7 @@ namespace SortingAlgorithms
                     t = m_queue.Dequeue();
                 }
 
-                m_action(t);
+                m_action?.Invoke(t);
             }
 
             m_noMoreThreadsEvent.Signal();

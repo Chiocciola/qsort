@@ -1,11 +1,18 @@
 using System;
 using System.Runtime.CompilerServices;
 
-namespace SortingAlgorithms
+namespace Bondar
 {
-    public static class QSort
+    public static class QuickSort
     {
-        public struct Interval
+        public enum SchedulerType
+        {
+            Sync,
+            TaskBased,
+            ThreadBased
+        }
+
+        internal struct Interval
         {
             public int Lo;
             public int Hi;
@@ -17,9 +24,11 @@ namespace SortingAlgorithms
             }
         }
 
-        public static void Sort(int[] a, IScheduler<Interval> scheduler)
+        public static void Sort(int[] a, SchedulerType schedulerType)
         {
-            //var scheduler = new ThreadScheduler<Interval>(Sort);
+            IScheduler<Interval> scheduler = schedulerType == SchedulerType.ThreadBased ? new ThreadBasedScheduler<Interval>() :
+                                             schedulerType == SchedulerType.TaskBased ? new TaskBasedScheduler<Interval>() :
+                                                                                       new SyncScheduler<Interval>();
 
             scheduler.SetHandler(Sort);
             scheduler.Enque(new Interval(0, a.Length - 1));
@@ -32,7 +41,7 @@ namespace SortingAlgorithms
                     if (interval.Hi - interval.Lo < 16)
                     {
                         //Array.Sort(a, interval.Lo, interval.Hi - interval.Lo + 1);
-                        InsertionSort(a, interval);
+                        InsertionSort.Sort(a, interval.Lo, interval.Hi);
                         return;
                     }
 
@@ -42,22 +51,6 @@ namespace SortingAlgorithms
 
                     interval.Lo = p + 1;
                 }
-            }
-        }
-
-        public static void InsertionSort(int[] a, Interval interval)
-        {
-            for (int i = interval.Lo + 1; i <= interval.Hi; i++)
-            {
-                var toInsert = a[i];
-                var j = i;
-
-                while (j > interval.Lo && a[j - 1] > toInsert)
-                {
-                    a[j] = a[--j];
-                }
-
-                a[j] = toInsert;
             }
         }
 

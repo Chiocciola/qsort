@@ -20,8 +20,9 @@ Thanks to @olegku for introducing support of https://github.com/dotnet/Benchmark
 
 |                Method |        N |       Mean |    Error |   StdDev | Ratio | RatioSD |
 |---------------------- |--------- |-----------:|---------:|---------:|------:|--------:|
-|                   __1 | 10000000 |   898.9 ms | 17.23 ms | 21.17 ms |  1.00 |    0.00 |
-|     Bondar_QSort_Sync | 10000000 |   956.9 ms | 14.84 ms | 12.40 ms |  1.06 |    0.03 |
-|   Bondar_QSort_Thread | 10000000 |   531.1 ms | 10.59 ms | 11.77 ms |  0.59 |    0.02 |
-|     Bondar_QSort_Task | 10000000 |   295.4 ms |  5.89 ms |  5.78 ms |  0.33 |    0.01 |
-| Kucherenko_NaiveQSort | 10000000 | 1,168.1 ms | 14.52 ms | 12.13 ms |  1.30 |    0.04 |
+|             ArraySort | 10000000 |   843.2 ms | 11.56 ms |  9.65 ms |  1.00 |    0.00 |
+| Bondar_QuickSort_Sync | 10000000 |   905.1 ms | 17.44 ms | 23.28 ms |  1.07 |    0.03 |
+|   Bondar_QSort_Thread | 10000000 |   496.0 ms |  9.87 ms |  9.69 ms |  0.59 |    0.01 |
+|     Bondar_QSort_Task | 10000000 |   278.5 ms |  5.46 ms |  6.70 ms |  0.33 |    0.01 |
+| Kucherenko_NaiveQSort | 10000000 | 1,057.6 ms |  7.21 ms |  6.39 ms |  1.26 |    0.02 |
+
