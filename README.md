@@ -10,9 +10,16 @@
 ## Where to start
 1. Good start piont is a Wikipedia article: https://en.wikipedia.org/wiki/Quicksort
 2. To start working with code fork this project
-3. Add a project named with your name/nickname
-4. Update Benchmarks project
-5. Submit pull request
+3. Add a project named with your name/nickname  
+  `dotnet new classlib -o Pikachu -f net5.0`  
+  `dotnet sln add "Pikachu\Pikachu.csproj"`
+4. Add unit tests  
+  `dotnet new xunit -o Pikachu.Test`  
+  `dotnet add "Pikachu.Test\Pikachu.Test.csproj" reference "Pikachu\Pikachu.csproj"`  
+  `dotnet sln add "Pikachu.Test\Pikachu.Test.csproj"`
+6. Update Benchmarks project  
+  `dotnet add "Benchmarks/Benchmarks.csproj"  reference "Pikachu\Pikachu.csproj"`
+7. Submit pull request
 
 ## Current benchmarks
 Thanks to @olegku for introducing support of https://github.com/dotnet/BenchmarkDotNet
